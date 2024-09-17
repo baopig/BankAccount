@@ -8,7 +8,7 @@ public class BankAccount {
 
     //constructor    
     //the job of the constructor is to set the instance variables to valid values
-    BankAccount(String name, int accountNum, double balance, String password) {
+    public BankAccount(String name, int accountNum, double balance, String password) {
         this.name = name;
         this.accountNum = accountNum;
         this.balance = balance;
@@ -55,11 +55,20 @@ public class BankAccount {
 
     public double withdraw(double amount) {
         if (loggedIn == true) {
-            balance -= amount;
-            return balance;
+            if (balance < amount) {
+                throw new IllegalStateException("Withdrawl amount is greater than total balance.");
+            }
+            else {
+                balance -= amount;
+                return balance;
+            }
         }
         else {
             throw new IllegalStateException("Not logged in."); 
         }
     }
+
+    public String toString() { //overrides toString
+        return "Account Number: " + this.accountNum;
+    }         
 }
