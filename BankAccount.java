@@ -43,24 +43,22 @@ public class BankAccount {
         }
     }
 
-    public double deposit(double amount) { //public so it can be accessed through ATM software
+    public void deposit(double amount) { //public so it can be accessed through ATM software
         if (loggedIn == true) {
             balance += amount;
-            return balance;
         }
         else {
             throw new IllegalStateException("Not logged in."); 
         }
     }
 
-    public double withdraw(double amount) {
+    public void withdraw(double amount) {
         if (loggedIn == true) {
             if (balance < amount) {
                 throw new IllegalStateException("Withdrawl amount is greater than total balance.");
             }
             else {
                 balance -= amount;
-                return balance;
             }
         }
         else {

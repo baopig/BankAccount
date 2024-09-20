@@ -6,6 +6,8 @@ public class Test {
 
         System.out.println(savings.logIn("jjyan01", "pass"));
         System.out.println(savings.getBalance()); //calling the method
-        System.out.println(savings.withdraw(1001));
+        savings.deposit(100);
+        System.out.println(savings.getBalance());
+
     }
 } 
